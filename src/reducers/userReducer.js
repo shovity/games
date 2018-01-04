@@ -3,7 +3,7 @@ import {
 } from '../constants/actionTypes';
 
 const initialUserState = {
-  meta: {},
+  metadata: {},
   objects: []
 }
 

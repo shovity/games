@@ -1,8 +1,9 @@
 {
-  "name": "games-client",
+  "name": "games",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gulp": "^3.9.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -12,10 +13,13 @@
     "socket.io": "^2.0.4"
   },
   "scripts": {
+    "dev": "gnome-terminal -e 'yarn dev-server'; yarn start",
+    "dev-server": "nodemon -w ./src/server ./src/server/app.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "xx": "gulp hello"
   },
   "proxy": "http://127.0.0.1:3030"
 }

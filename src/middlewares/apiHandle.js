@@ -28,11 +28,11 @@ const apiHandleMiddleware = store => next => action => {
       method: method || 'GET'
     }
 
-    fetch(path, options).then(res => res.json()).then(result => {
+    fetch(path, options).then(res => res.json()).then(data => {
       if (typeof casSuccess === 'function') {
-        store.dispatch(casSuccess(result))
+        store.dispatch(casSuccess(data))
       } else if (Array.isArray(casSuccess)) {
-        casSuccess.forEach(ca => {store.dispatch(ca(result))})
+        casSuccess.forEach(ca => {store.dispatch(ca(data))})
       } else {
         console.log('call actions success invalid')
       }

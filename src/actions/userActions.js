@@ -2,19 +2,21 @@ import {
   REQUEST_USER, RECEIVE_USER
 } from '../constants/actionTypes'
 
+// call chain api
 export const fetchUser = () => ({
   call: {
     path: 'user',
-    casStart: requestAnime,
-    casSuccess: receiveAnime
+    casStart: requestUser,
+    casSuccess: receiveUser
   }
 })
 
-export const requestAnime = () => ({
+// plain acitons
+export const requestUser = () => ({
   type: REQUEST_USER
 })
 
-export const receiveAnime = result => ({
+export const receiveUser = data => ({
   type: RECEIVE_USER,
-  result
+  data
 })
