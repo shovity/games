@@ -3,6 +3,7 @@
  */
 
 import { API_BASE_URL } from '../config'
+import path from 'path'
 
 // action - { call: { path, method, header, body .... casStart, casSuccess, casError } }
 
@@ -48,7 +49,7 @@ const apiHandleMiddleware = store => next => action => {
 }
 
 const extractParams = params => {
-  return { ...params, path: `${API_BASE_URL}/${params.path}` }
+  return { ...params, path: path.join(API_BASE_URL, params.path) }
 }
 
 export default apiHandleMiddleware

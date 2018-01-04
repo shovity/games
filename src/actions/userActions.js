@@ -4,7 +4,7 @@ import {
 
 export const fetchUser = () => ({
   call: {
-    path: '/user',
+    path: 'user',
     casStart: requestAnime,
     casSuccess: receiveAnime
   }

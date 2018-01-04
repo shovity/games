@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 class Home extends Component {
   constructor(props) {
     super(props)
-    setTimeout(() => {
-      this.props.fetchUser()
-    }, 1000)
+    this.props.fetchUser()
   }
 
   render() {
