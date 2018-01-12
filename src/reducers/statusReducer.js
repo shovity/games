@@ -1,14 +1,14 @@
 import { SET_STATUS } from '../constants/actionTypes'
 
 const initialStatusState = {
-  isOnline: false
+  isConnected: false
 }
 
 const statusReducer = (state=initialStatusState, action) => {
   switch (action.type) {
     case SET_STATUS:
-      if (action.data && typeof action.data.isOnline === 'boolean') {
-        return {...state, isOnline: action.data.isOnline }
+      if (action.data && typeof action.data.isConnected === 'boolean') {
+        return {...state, isConnected: action.data.isConnected }
       }
       return state
 

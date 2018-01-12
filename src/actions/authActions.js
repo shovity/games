@@ -7,8 +7,9 @@ export const getAccessToken = (username, password) => {
   return {
     call: {
       path: 'auth',
-      casStart: requestToken(username, password),
-      casSuccess:
+      body: { username, password },
+      casStart: requestToken,
+      casSuccess: receiveToken
     }
   }
 }
@@ -17,5 +18,12 @@ export const getAccessToken = (username, password) => {
 export const requestToken = () => {
   return {
     type: REQUEST_TOKEN
+  }
+}
+
+export const receiveToken = (data) => {
+  return {
+    type: RECEIVE_TOKEN,
+    data
   }
 }

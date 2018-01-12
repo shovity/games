@@ -1,11 +1,11 @@
 /**
  * CALL API CHAIN SYSTEM
+ * action - { call: { path, method, header, body .... casStart, casSuccess, casError } }
  */
 
-import { API_BASE_URL } from '../config'
 import path from 'path'
 
-// action - { call: { path, method, header, body .... casStart, casSuccess, casError } }
+const API_BASE = process.env.REACT_APP_API_BASE
 
 const apiHandleMiddleware = store => next => action => {
   if (!action.call) {
@@ -48,8 +48,10 @@ const apiHandleMiddleware = store => next => action => {
   }
 }
 
+if (!API_BASE) console.log('API_BASE env is null')
+
 const extractParams = params => {
-  return { ...params, path: path.join(API_BASE_URL, params.path) }
+  return { ...params, path: path.join(API_BASE, params.path) }
 }
 
 export default apiHandleMiddleware

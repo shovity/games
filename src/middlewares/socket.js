@@ -6,11 +6,11 @@ const socket = websocket()
 const socketMiddleWare = ({ dispatch }) => {
 
   socket.on('connect', () => {
-    dispatch(setStatus({ isOnline: true }))
+    dispatch(setStatus({ isConnected: true }))
   })
 
   socket.on('disconnect', () => {
-    dispatch(setStatus({ isOnline: false }))
+    dispatch(setStatus({ isConnected: false }))
   })
 
   socket.on('reconnect', () => {
@@ -26,7 +26,8 @@ const socketMiddleWare = ({ dispatch }) => {
     if (!action.socket) {
       next(action)
     } else {
-      // const { event, data } = action.socket
+      const { event, data } = action.socket
+      socket.emit(event, data)
     }
   }
 }

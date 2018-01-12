@@ -1,5 +1,7 @@
 const logger = store => next => action => {
-  action.type && console.log(action.type)
+  if (action.type) {
+    console.log(action.type, action.data)
+  }
   next(action)
 }
 
